@@ -22,6 +22,7 @@
 
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
@@ -31,11 +32,17 @@
             color: #fff;
         }
 
+        header {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
         .calculator {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 350px;
+            width: 90%;
+            max-width: 350px;
             background: #2e2e2e;
             border-radius: 12px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
@@ -60,14 +67,11 @@
         table {
             width: 100%;
             border-collapse: separate;
-            /* Set to separate instead of collapse */
             border-spacing: 10px;
-            /* Adjust the spacing between table cells */
         }
 
         td {
             width: 20%;
-            /* Reduced the width */
             height: 70px;
             text-align: center;
             vertical-align: middle;
@@ -117,10 +121,55 @@
         .clear:hover {
             background: #f44336;
         }
+
+        .header-container {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #e7ece4;
+            text-shadow: 0px 4px 8px rgba(255, 235, 59, 0.6), 0px 0px 12px rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            #display {
+                font-size: 1.2rem;
+                height: 50px;
+            }
+
+            td {
+                height: 60px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            td {
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .calculator {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <header>
+        <div class="header-container">
+            Calculator
+        </div>
+    </header>
     <div class="calculator">
         <input id="display" type="text" readonly>
         <table>
@@ -152,6 +201,9 @@
             </tbody>
         </table>
     </div>
+    <footer>
+        &copy; 2025 Made by Preet
+    </footer>
 
     <script>
         let display = document.getElementById('display');
